@@ -12,8 +12,11 @@ RUN apt-get -y install \
 	curl \
 	wget \
 	unzip \
-	xorg
-	
-# destinationFolder=/opt/mcr
-# agreeToLicense=yes
-# mode=silent
+	xorg \
+	git
+
+WORKDIR /home
+RUN git clone https://github.com/mbartoli/docker-matlab
+WORKDIR /home/docker-matlab
+RUN mkdir /mcr-install
+RUN cp matlab.txt /mcr-install 
